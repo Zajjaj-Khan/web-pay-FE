@@ -3,7 +3,7 @@ import { Butcherman} from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {Link, Notebook} from 'lucide-react'
-import { LoginInButton } from "@/components/login-button";
+import { LoginInButton } from "@/components/auth/login-button";
 
 
 const font = Butcherman({
