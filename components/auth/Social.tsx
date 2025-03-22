@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 
 export const Social = () => {
-  const { signIn, userData , error } = useLoginWithGoogle();
+  const { signIn, userData} = useLoginWithGoogle();
   const router = useRouter(); // Initialize the router to handle navigation
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export const Social = () => {
             router.push("/Onboarding"); // You can change the URL to any route you want
 
     }
-  }, [userData]);
+  }, [userData,router]);
 
 
 

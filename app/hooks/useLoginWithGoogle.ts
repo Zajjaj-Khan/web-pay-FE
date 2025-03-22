@@ -5,7 +5,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { useState } from "react";
 
 export const useLoginWithGoogle = () => {
-  const [userData, setUserData] = useState<any>(null); // State to hold the response data
+  const [userData, setUserData] = useState<object | null>(null); // State to hold the response data
   const [error, setError] = useState<string | null>(null);
   const login = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
@@ -19,8 +19,9 @@ export const useLoginWithGoogle = () => {
         localStorage.setItem("jwt_token", res.data.token);
         setUserData(res.data);
         // Update user state
-      } catch (err) {
+      } catch (err:unknown) {
         console.error("Login failed", err);
+        setError("Login failed. Please try again.");
       }
     },
     onError: () => console.error("Google login failed"),
