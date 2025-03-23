@@ -10,7 +10,19 @@ setupDevPlatform().catch(console.error);
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async headers() {
+    return [
+      {
+        source: "/auth/register",
+        headers: [
+          {
+            key: "Cross-Origin-Embedder-Policy",
+            value: "unsafe-none",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
