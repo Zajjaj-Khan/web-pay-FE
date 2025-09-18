@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { TanstackProvider } from "@/components/providers/tanstack-provider";
 import ReduxProvider from "@/components/providers/redux-provider";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,10 +24,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const googleClientId = process.env.GOOGLE_OAUTH_CLIENT_SECRET as string;
 
   return (
-    <GoogleOAuthProvider clientId={googleClientId}>
+    
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -38,6 +36,5 @@ export default function RootLayout({
         </ReduxProvider>
       </body>
     </html>
-    </GoogleOAuthProvider>
   );
 }
